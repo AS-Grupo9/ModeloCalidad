@@ -17,6 +17,15 @@ public class Splash {
 
 	private JFrame frmCalidadDeSoftware;
 	private JPanel panel_1;
+	private int acumulado;
+		
+	public int getAcumulado() {
+		return acumulado;
+	}
+
+	public void setAcumulado(int acumulado) {
+		this.acumulado += acumulado;
+	}
 
 	/**
 	 * Launch the application.
@@ -38,13 +47,13 @@ public class Splash {
 	 * Create the application.
 	 */
 	public Splash() {
-		initialize();
+		initialize(this);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
 		frmCalidadDeSoftware.setBounds(100, 100, 450, 300);
@@ -63,6 +72,9 @@ public class Splash {
 		btnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnIniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				frmCalidadDeSoftware.setVisible(false);
+				acumulado = 0;
+				FuncionabilidadA funcA = new FuncionabilidadA(frameInicial);
 			}
 		});
 		panel_1.add(btnIniciar);

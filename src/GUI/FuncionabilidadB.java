@@ -16,6 +16,7 @@ import javax.swing.JRadioButton;
 public class FuncionabilidadB {
 
 	private JFrame frmCalidadDeSoftware;
+	private int puntaje;
 
 	/**
 	 * Launch the application.
@@ -24,8 +25,8 @@ public class FuncionabilidadB {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FuncionabilidadB window = new FuncionabilidadB();
-					window.frmCalidadDeSoftware.setVisible(true);
+					/*FuncionabilidadB window = new FuncionabilidadB();
+					window.frmCalidadDeSoftware.setVisible(true);*/
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -36,14 +37,7 @@ public class FuncionabilidadB {
 	/**
 	 * Create the application.
 	 */
-	public FuncionabilidadB() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	public FuncionabilidadB(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
 		frmCalidadDeSoftware.setBounds(100, 100, 450, 208);
@@ -69,7 +63,7 @@ public class FuncionabilidadB {
 		JPanel panel_1 = new JPanel();
 		frmCalidadDeSoftware.getContentPane().add(panel_1, BorderLayout.NORTH);
 		
-		JLabel lblFuncionabilidad = new JLabel("FUNCIONABILIDAD - Seguridad de Acceso");
+		JLabel lblFuncionabilidad = new JLabel("FUNCIONABILIDAD - Exactitud de resultados");
 		lblFuncionabilidad.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFuncionabilidad.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		panel_1.add(lblFuncionabilidad);
@@ -78,7 +72,7 @@ public class FuncionabilidadB {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblALuegoDe = new JLabel("b) \u00BFLos datos utilizados poseen una encriptaci\u00F3n segura? ");
+		JLabel lblALuegoDe = new JLabel("a) \u00BFQu\u00E9 grado de precisi\u00F3n poseen las diferentes funcionalidades de la aplicaci\u00F3n?");
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);
@@ -87,9 +81,17 @@ public class FuncionabilidadB {
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		JRadioButton rdbtnMalo = new JRadioButton("Malo");
-		JRadioButton rdbtnRegular = new JRadioButton("Regular");
-		JRadioButton rdbtnBueno = new JRadioButton("Bueno");
+		JRadioButton rdbtnMalo = new JRadioButton("Error mayor a 10 elevado a la -3");
+		rdbtnMalo.setBounds(6, 29, 109, 23);
+		panel_3.add(rdbtnMalo);
+		
+		JRadioButton rdbtnRegular = new JRadioButton("Error entre 10 a la -4 y 10 a la -6");
+		rdbtnRegular.setBounds(175, 29, 109, 23);
+		panel_3.add(rdbtnRegular);
+		
+		JRadioButton rdbtnBueno = new JRadioButton("Error menor a 10 elevado a la -7");
+		rdbtnBueno.setBounds(319, 29, 109, 23);
+		panel_3.add(rdbtnBueno);
 		
 		rdbtnBueno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -114,15 +116,6 @@ public class FuncionabilidadB {
 			}
 		});
 		
-		rdbtnMalo.setBounds(6, 29, 109, 23);
-		panel_3.add(rdbtnMalo);
-		
-		
-		rdbtnRegular.setBounds(175, 29, 109, 23);
-		panel_3.add(rdbtnRegular);
-		
-		
-		rdbtnBueno.setBounds(319, 29, 109, 23);
-		panel_3.add(rdbtnBueno);
+		frmCalidadDeSoftware.setVisible(true);
 	}
 }

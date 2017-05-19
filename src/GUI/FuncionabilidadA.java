@@ -16,6 +16,11 @@ import javax.swing.JRadioButton;
 public class FuncionabilidadA {
 
 	private JFrame frmCalidadDeSoftware;
+	private int contador = 0, pregunta = 1;
+	boolean respuesta;
+	private JLabel lblALuegoDe;
+	JRadioButton rdbtnMalo;
+	JRadioButton rdbtnBueno;
 
 	/**
 	 * Launch the application.
@@ -24,8 +29,8 @@ public class FuncionabilidadA {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FuncionabilidadA window = new FuncionabilidadA();
-					window.frmCalidadDeSoftware.setVisible(true);
+					/*FuncionabilidadA window = new FuncionabilidadA();
+					window.frmCalidadDeSoftware.setVisible(true);*/
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,15 +40,9 @@ public class FuncionabilidadA {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
-	public FuncionabilidadA() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	public FuncionabilidadA(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
 		frmCalidadDeSoftware.setBounds(100, 100, 450, 208);
@@ -63,6 +62,22 @@ public class FuncionabilidadA {
 		panel.add(btnSalir);
 		
 		JButton btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				botonSiguiente();
+				if(pregunta > 3)
+				{
+					if(contador > 1)
+						frameInicial.setAcumulado(10);
+					else if(contador > 0)
+						frameInicial.setAcumulado(5);
+					else
+						frameInicial.setAcumulado(0);
+					FuncionabilidadB funcB = new FuncionabilidadB(frameInicial);
+					frmCalidadDeSoftware.dispose();
+				}
+			}
+		});
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		panel.add(btnSiguiente);
 		
@@ -78,7 +93,7 @@ public class FuncionabilidadA {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblALuegoDe = new JLabel("a) Luego de ocurrir un error en el sistema, \u00BFExiste protecci\u00F3n a los datos afectados? ");
+		lblALuegoDe = new JLabel("a) Luego de ocurrir un error en el sistema, \u00BFExiste protecci\u00F3n a los datos afectados? ");
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);
@@ -87,39 +102,61 @@ public class FuncionabilidadA {
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		JRadioButton rdbtnMalo = new JRadioButton("Malo");
+		rdbtnMalo = new JRadioButton("No");
 		rdbtnMalo.setBounds(6, 29, 109, 23);
 		panel_3.add(rdbtnMalo);
-		
+		/*
 		JRadioButton rdbtnRegular = new JRadioButton("Regular");
 		rdbtnRegular.setBounds(175, 29, 109, 23);
 		panel_3.add(rdbtnRegular);
-		
-		JRadioButton rdbtnBueno = new JRadioButton("Bueno");
+		*/
+		rdbtnBueno = new JRadioButton("Sí");
 		rdbtnBueno.setBounds(319, 29, 109, 23);
 		panel_3.add(rdbtnBueno);
 		
 		rdbtnBueno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rdbtnRegular.setSelected(false);
+			//	rdbtnRegular.setSelected(false);
 				rdbtnMalo.setSelected(false);
 			}
 		});
 		
-		
+		/*
 		rdbtnRegular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rdbtnBueno.setSelected(false);
 				rdbtnMalo.setSelected(false);
 			}
 		});
-		
+		*/
 
 		rdbtnMalo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rdbtnRegular.setSelected(false);
+			//	rdbtnRegular.setSelected(false);
 				rdbtnBueno.setSelected(false);
 			}
 		});
+		
+		frmCalidadDeSoftware.setVisible(true);
 	}
+	
+	private void botonSiguiente()
+	{
+		if(rdbtnBueno.isSelected())
+			contador++;
+		pregunta++;
+		switch(pregunta)
+		{
+			case 2: lblALuegoDe.setText("b) \u00BFLos datos utilizados poseen una encriptaci\u00F3n segura? ");
+					rdbtnBueno.setSelected(false);
+					rdbtnMalo.setSelected(false);
+					break;
+			case 3: lblALuegoDe.setText("c) \u00BFExisten restricciones de accesos a funcionalidades de acuerdo a alg\u00FAn rol de usuario?");
+					rdbtnBueno.setSelected(false);
+					rdbtnMalo.setSelected(false);
+					break;
+			default: break;
+		}
+	}
+	
 }
