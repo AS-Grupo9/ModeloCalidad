@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
@@ -16,7 +18,11 @@ import javax.swing.JRadioButton;
 public class EficienciaB {
 
 	private JFrame frmCalidadDeSoftware;
-
+	JRadioButton rdbtnBueno;
+	JRadioButton rdbtnRegular;
+	JRadioButton rdbtnMalo;
+	JLabel lblALuegoDe;
+	int contador = 0;
 	/**
 	 * Launch the application.
 	 */
@@ -24,8 +30,8 @@ public class EficienciaB {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EficienciaB window = new EficienciaB();
-					window.frmCalidadDeSoftware.setVisible(true);
+					/*EficienciaB window = new EficienciaB();
+					window.frmCalidadDeSoftware.setVisible(true);*/
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -33,17 +39,7 @@ public class EficienciaB {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public EficienciaB() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	public EficienciaB(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
 		frmCalidadDeSoftware.setBounds(100, 100, 450, 208);
@@ -63,6 +59,19 @@ public class EficienciaB {
 		panel.add(btnSalir);
 		
 		JButton btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				botonSiguiente();
+				if(contador > 1)
+					frameInicial.setAcumulado(10);
+				else if(contador > 0)
+					frameInicial.setAcumulado(5);
+				else
+					frameInicial.setAcumulado(0);
+				EficienciaC efiC = new EficienciaC(frameInicial);
+				frmCalidadDeSoftware.dispose();
+			}
+		});
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		panel.add(btnSiguiente);
 		
@@ -78,7 +87,7 @@ public class EficienciaB {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblALuegoDe = new JLabel("b) \u00BFQu\u00E9 porcentaje de procesador utiliza el sistema en ejecuci\u00F3n?");
+		lblALuegoDe = new JLabel("b) \u00BFQu\u00E9 porcentaje de procesador utiliza el sistema en ejecuci\u00F3n?");
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);
@@ -87,17 +96,17 @@ public class EficienciaB {
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		JRadioButton rdbtnMalo = new JRadioButton("Malo");
+		rdbtnMalo = new JRadioButton("Malo");
 		rdbtnMalo.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnMalo.setBounds(6, 29, 109, 23);
 		panel_3.add(rdbtnMalo);
 		
-		JRadioButton rdbtnRegular = new JRadioButton("Regular");
+		rdbtnRegular = new JRadioButton("Regular");
 		rdbtnRegular.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnRegular.setBounds(175, 29, 109, 23);
 		panel_3.add(rdbtnRegular);
 		
-		JRadioButton rdbtnBueno = new JRadioButton("Bueno");
+		rdbtnBueno = new JRadioButton("Bueno");
 		rdbtnBueno.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnBueno.setBounds(319, 29, 109, 23);
 		panel_3.add(rdbtnBueno);
@@ -124,5 +133,23 @@ public class EficienciaB {
 				rdbtnBueno.setSelected(false);
 			}
 		});
+		
+		frmCalidadDeSoftware.setVisible(true);
 	}
+
+	private void botonSiguiente()
+	{
+		if(rdbtnBueno.isSelected() || rdbtnMalo.isSelected() || rdbtnRegular.isSelected())
+		{
+			if(rdbtnBueno.isSelected())
+				contador+=2;
+			if(rdbtnRegular.isSelected())
+				contador++;
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, "Debe seleccionar una opción para continuar.");
+		}
+	}
+	
 }

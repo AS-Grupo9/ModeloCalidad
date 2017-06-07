@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
@@ -16,7 +18,11 @@ import javax.swing.JRadioButton;
 public class FuncionabilidadB {
 
 	private JFrame frmCalidadDeSoftware;
+	JRadioButton rdbtnMalo;
+	JRadioButton rdbtnRegular;	
+	JRadioButton rdbtnBueno;
 	private int puntaje;
+	private int contador = 0, pregunta = 1;
 
 	/**
 	 * Launch the application.
@@ -36,6 +42,7 @@ public class FuncionabilidadB {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
 	public FuncionabilidadB(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
@@ -57,6 +64,19 @@ public class FuncionabilidadB {
 		panel.add(btnSalir);
 		
 		JButton btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				botonSiguiente();
+				if(contador > 1)
+					frameInicial.setAcumulado(10);
+				else if(contador > 0)
+					frameInicial.setAcumulado(5);
+				else
+					frameInicial.setAcumulado(0);
+				EficienciaA efiA = new EficienciaA(frameInicial);
+				frmCalidadDeSoftware.dispose();
+			}
+		});
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		panel.add(btnSiguiente);
 		
@@ -81,16 +101,16 @@ public class FuncionabilidadB {
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		JRadioButton rdbtnMalo = new JRadioButton("Error mayor a 10 elevado a la -3");
-		rdbtnMalo.setBounds(6, 29, 109, 23);
+		rdbtnMalo = new JRadioButton("Error mayor a 10 elevado a la -3");
+		rdbtnMalo.setBounds(6, 7, 280, 23);
 		panel_3.add(rdbtnMalo);
 		
-		JRadioButton rdbtnRegular = new JRadioButton("Error entre 10 a la -4 y 10 a la -6");
-		rdbtnRegular.setBounds(175, 29, 109, 23);
+		rdbtnRegular = new JRadioButton("Error entre 10 a la -4 y 10 a la -6");
+		rdbtnRegular.setBounds(6, 29, 280, 23);
 		panel_3.add(rdbtnRegular);
 		
-		JRadioButton rdbtnBueno = new JRadioButton("Error menor a 10 elevado a la -7");
-		rdbtnBueno.setBounds(319, 29, 109, 23);
+		rdbtnBueno = new JRadioButton("Error menor a 10 elevado a la -7");
+		rdbtnBueno.setBounds(6, 55, 280, 23);
 		panel_3.add(rdbtnBueno);
 		
 		rdbtnBueno.addActionListener(new ActionListener() {
@@ -117,5 +137,20 @@ public class FuncionabilidadB {
 		});
 		
 		frmCalidadDeSoftware.setVisible(true);
+	}
+
+	private void botonSiguiente()
+	{
+		if(rdbtnBueno.isSelected() || rdbtnRegular.isSelected() || rdbtnMalo.isSelected())
+		{
+			if(rdbtnBueno.isSelected())
+				contador+=2;
+			if(rdbtnRegular.isSelected())
+				contador++;
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, "Debe seleccionar una opción para continuar.");
+		}
 	}
 }

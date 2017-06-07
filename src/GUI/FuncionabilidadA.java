@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
@@ -21,7 +23,7 @@ public class FuncionabilidadA {
 	private JLabel lblALuegoDe;
 	JRadioButton rdbtnMalo;
 	JRadioButton rdbtnBueno;
-
+	  
 	/**
 	 * Launch the application.
 	 */
@@ -142,20 +144,27 @@ public class FuncionabilidadA {
 	
 	private void botonSiguiente()
 	{
-		if(rdbtnBueno.isSelected())
-			contador++;
-		pregunta++;
-		switch(pregunta)
+		if(rdbtnBueno.isSelected() || rdbtnMalo.isSelected())
 		{
-			case 2: lblALuegoDe.setText("b) \u00BFLos datos utilizados poseen una encriptaci\u00F3n segura? ");
-					rdbtnBueno.setSelected(false);
-					rdbtnMalo.setSelected(false);
-					break;
-			case 3: lblALuegoDe.setText("c) \u00BFExisten restricciones de accesos a funcionalidades de acuerdo a alg\u00FAn rol de usuario?");
-					rdbtnBueno.setSelected(false);
-					rdbtnMalo.setSelected(false);
-					break;
-			default: break;
+			if(rdbtnBueno.isSelected())
+				contador++;
+			pregunta++;
+			switch(pregunta)
+			{
+				case 2: lblALuegoDe.setText("b) \u00BFLos datos utilizados poseen una encriptaci\u00F3n segura? ");
+						rdbtnBueno.setSelected(false);
+						rdbtnMalo.setSelected(false);
+						break;
+				case 3: lblALuegoDe.setText("c) \u00BFExisten restricciones de accesos a funcionalidades de acuerdo a alg\u00FAn rol de usuario?");
+						rdbtnBueno.setSelected(false);
+						rdbtnMalo.setSelected(false);
+						break;
+				default: break;
+			}
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, "Debe seleccionar una opción para continuar.");
 		}
 	}
 	

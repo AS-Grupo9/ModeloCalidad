@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
@@ -16,6 +18,10 @@ import javax.swing.JRadioButton;
 public class FiabilidadC {
 
 	private JFrame frmCalidadDeSoftware;
+	JRadioButton rdbtnBueno;
+	JRadioButton rdbtnRegular;
+	JRadioButton rdbtnMalo;
+	int contador = 0;
 
 	/**
 	 * Launch the application.
@@ -24,8 +30,8 @@ public class FiabilidadC {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FiabilidadC window = new FiabilidadC();
-					window.frmCalidadDeSoftware.setVisible(true);
+					/*FiabilidadC window = new FiabilidadC();
+					window.frmCalidadDeSoftware.setVisible(true);*/
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -33,17 +39,7 @@ public class FiabilidadC {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public FiabilidadC() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	public FiabilidadC(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
 		frmCalidadDeSoftware.setBounds(100, 100, 450, 208);
@@ -63,6 +59,19 @@ public class FiabilidadC {
 		panel.add(btnSalir);
 		
 		JButton btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				botonSiguiente();
+				if(contador > 1)
+					frameInicial.setAcumulado(10);
+				else if(contador > 0)
+					frameInicial.setAcumulado(5);
+				else
+					frameInicial.setAcumulado(0);
+				FiabilidadD fiaD = new FiabilidadD(frameInicial);
+				frmCalidadDeSoftware.dispose();
+			}
+		});
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		panel.add(btnSiguiente);
 		
@@ -87,17 +96,17 @@ public class FiabilidadC {
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		JRadioButton rdbtnMalo = new JRadioButton("Malo");
+		rdbtnMalo = new JRadioButton("Malo");
 		rdbtnMalo.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnMalo.setBounds(6, 29, 109, 23);
 		panel_3.add(rdbtnMalo);
 		
-		JRadioButton rdbtnRegular = new JRadioButton("Regular");
+		rdbtnRegular = new JRadioButton("Regular");
 		rdbtnRegular.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnRegular.setBounds(175, 29, 109, 23);
 		panel_3.add(rdbtnRegular);
 		
-		JRadioButton rdbtnBueno = new JRadioButton("Bueno");
+		rdbtnBueno = new JRadioButton("Bueno");
 		rdbtnBueno.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnBueno.setBounds(319, 29, 109, 23);
 		panel_3.add(rdbtnBueno);
@@ -124,5 +133,26 @@ public class FiabilidadC {
 				rdbtnBueno.setSelected(false);
 			}
 		});
+		frmCalidadDeSoftware.setVisible(true);
 	}
+
+	/**
+	 * @wbp.parser.entryPoint
+	 */
+	private void botonSiguiente()
+	{
+		if(rdbtnBueno.isSelected() || rdbtnMalo.isSelected() || rdbtnRegular.isSelected())
+		{
+			if(rdbtnBueno.isSelected())
+				contador+=2;
+			if(rdbtnRegular.isSelected())
+				contador++;
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, "Debe seleccionar una opción para continuar.");
+		}
+	}
+	
 }
+
