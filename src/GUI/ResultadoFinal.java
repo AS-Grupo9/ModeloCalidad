@@ -69,21 +69,25 @@ public class ResultadoFinal extends JFrame {
 		lblEvaluaciónFinal.setBounds(10, 11, 150, 25);
 		panel_1.add(lblEvaluaciónFinal);
 		
-		JLabel lblCalificacion = new JLabel("lblCalificacion");
-		lblCalificacion.setBounds(10, 47, 110, 14);
-		panel_1.add(lblCalificacion);
-		
-		JLabel lblCalificacionDetalle = new JLabel("lblCalificacionDetalle");
-		lblCalificacionDetalle.setBounds(10, 72, 356, 14);
-		panel_1.add(lblCalificacionDetalle);
-		
 		JLabel lblResultado = new JLabel("lblResultado");
 		lblResultado.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblResultado.setBounds(165, 16, 77, 14);
 		panel_1.add(lblResultado);
 		DecimalFormat df = new DecimalFormat("#.##");
 		df.setRoundingMode(RoundingMode.CEILING);
-		lblResultado.setText(df.format(frameInicial.getAcumulado()/cantPreguntas));
+		lblResultado.setText(df.format(frameInicial.getAcumulado()/(double)cantPreguntas));
+
+		JLabel lblCalificacion = new JLabel("lblCalificacion");
+		lblCalificacion.setBounds(10, 47, 110, 14);
+		panel_1.add(lblCalificacion);
+		String calificacion = ObtenerCalificacion(frameInicial.getAcumulado()/(double)cantPreguntas); 
+		lblCalificacion.setText(calificacion);
+		
+		JLabel lblCalificacionDetalle = new JLabel("lblCalificacionDetalle");
+		lblCalificacionDetalle.setBounds(10, 72, 356, 14);
+		panel_1.add(lblCalificacionDetalle);
+		String calificacionDetalle = ObtenerCalificacionDetalle(frameInicial.getAcumulado()/(double)cantPreguntas); 
+		lblCalificacionDetalle.setText(calificacionDetalle);
 		
 		JButton btnNewButton = new JButton("Finalizar");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -94,5 +98,20 @@ public class ResultadoFinal extends JFrame {
 		btnNewButton.setBounds(335, 164, 89, 23);
 		contentPane.add(btnNewButton);
 		fr.setVisible(true);
+	}
+	
+	private String ObtenerCalificacion(double resultado)
+	{
+		String calificacion = "";
+		
+		return calificacion;
+	}
+	
+
+	private String ObtenerCalificacionDetalle(double resultado)
+	{
+		String calificacionDetalle = "";
+		
+		return calificacionDetalle;
 	}
 }
