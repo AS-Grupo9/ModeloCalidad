@@ -21,7 +21,7 @@ public class MantenibilidadC {
 	JRadioButton rdbtnBueno;
 	JRadioButton rdbtnRegular;
 	JRadioButton rdbtnMalo;
-	int contador = 0;
+	int contador, pregunta = 0;
 	
 	/**
 	 * Launch the application.
@@ -49,6 +49,7 @@ public class MantenibilidadC {
 		frmCalidadDeSoftware.setBounds(100, 100, 549, 208);
 		frmCalidadDeSoftware.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalidadDeSoftware.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmCalidadDeSoftware.setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		frmCalidadDeSoftware.getContentPane().add(panel, BorderLayout.SOUTH);
@@ -66,14 +67,12 @@ public class MantenibilidadC {
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botonSiguiente();
-				if(contador > 1)
-					frameInicial.setAcumulado(10);
-				else if(contador > 0)
-					frameInicial.setAcumulado(5);
-				else
-					frameInicial.setAcumulado(0);
-				//MantenibilidadC manC = new MantenibilidadC(frameInicial);
-				frmCalidadDeSoftware.dispose();
+				if(pregunta > 0)
+				{
+					frameInicial.setAcumulado(contador);
+					ResultadoFinal fin = new ResultadoFinal(frameInicial);
+					frmCalidadDeSoftware.dispose();
+				}
 			}
 		});
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -148,9 +147,10 @@ public class MantenibilidadC {
 		if(rdbtnBueno.isSelected() || rdbtnMalo.isSelected() || rdbtnRegular.isSelected())
 		{
 			if(rdbtnBueno.isSelected())
-				contador+=2;
+				contador+=10;
 			if(rdbtnRegular.isSelected())
-				contador++;
+				contador+=5;
+			pregunta++;
 		}
 		else
 		{

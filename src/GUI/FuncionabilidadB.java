@@ -22,7 +22,7 @@ public class FuncionabilidadB {
 	JRadioButton rdbtnRegular;	
 	JRadioButton rdbtnBueno;
 	private int puntaje;
-	private int contador = 0, pregunta = 1;
+	private int contador = 0, pregunta = 0;
 
 	/**
 	 * Launch the application.
@@ -50,6 +50,7 @@ public class FuncionabilidadB {
 		frmCalidadDeSoftware.setBounds(100, 100, 450, 208);
 		frmCalidadDeSoftware.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalidadDeSoftware.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmCalidadDeSoftware.setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		frmCalidadDeSoftware.getContentPane().add(panel, BorderLayout.SOUTH);
@@ -67,14 +68,12 @@ public class FuncionabilidadB {
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				botonSiguiente();
-				if(contador > 1)
-					frameInicial.setAcumulado(10);
-				else if(contador > 0)
-					frameInicial.setAcumulado(5);
-				else
-					frameInicial.setAcumulado(0);
-				EficienciaA efiA = new EficienciaA(frameInicial);
-				frmCalidadDeSoftware.dispose();
+				if(pregunta > 0)
+				{
+					frameInicial.setAcumulado(contador);
+					EficienciaA efiA = new EficienciaA(frameInicial);
+					frmCalidadDeSoftware.dispose();
+				}
 			}
 		});
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -144,9 +143,10 @@ public class FuncionabilidadB {
 		if(rdbtnBueno.isSelected() || rdbtnRegular.isSelected() || rdbtnMalo.isSelected())
 		{
 			if(rdbtnBueno.isSelected())
-				contador+=2;
+				contador+=10;
 			if(rdbtnRegular.isSelected())
-				contador++;
+				contador+=5;
+			pregunta++;
 		}
 		else
 		{

@@ -22,7 +22,7 @@ public class FiabilidadD {
 	JRadioButton rdbtnBueno;
 	JRadioButton rdbtnRegular;
 	JRadioButton rdbtnMalo;
-	int contador = 0;
+	int contador, pregunta = 0;
 
 	/**
 	 * Launch the application.
@@ -40,12 +40,16 @@ public class FiabilidadD {
 		});
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public FiabilidadD(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
 		frmCalidadDeSoftware.setBounds(100, 100, 450, 254);
 		frmCalidadDeSoftware.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalidadDeSoftware.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmCalidadDeSoftware.setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		frmCalidadDeSoftware.getContentPane().add(panel, BorderLayout.SOUTH);
@@ -63,14 +67,12 @@ public class FiabilidadD {
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botonSiguiente();
-				if(contador > 1)
-					frameInicial.setAcumulado(10);
-				else if(contador > 0)
-					frameInicial.setAcumulado(5);
-				else
-					frameInicial.setAcumulado(0);
-				FiabilidadE fiaE = new FiabilidadE(frameInicial);
-				frmCalidadDeSoftware.dispose();
+				if(pregunta > 0)
+				{
+					frameInicial.setAcumulado(contador);
+					FiabilidadE fiaE = new FiabilidadE(frameInicial);
+					frmCalidadDeSoftware.dispose();
+				}
 			}
 		});
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -89,7 +91,7 @@ public class FiabilidadD {
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblALuegoDe = new JLabel("a) \u00BFLuego de una falla, existe la recuperaci\u00F3n y reanudaci\u00F3n autom\u00E1tica de las actividades del sistema? ");
-		lblALuegoDe.setForeground(Color.RED);
+		lblALuegoDe.setForeground(Color.BLACK);
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);
@@ -147,9 +149,10 @@ public class FiabilidadD {
 			if(rdbtnBueno.isSelected() || rdbtnMalo.isSelected() || rdbtnRegular.isSelected())
 			{
 				if(rdbtnBueno.isSelected())
-					contador+=2;
+					contador+=10;
 				if(rdbtnRegular.isSelected())
-					contador++;
+					contador+=5;
+				pregunta++;
 			}
 			else
 			{

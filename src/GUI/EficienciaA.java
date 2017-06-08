@@ -49,6 +49,7 @@ public class EficienciaA {
 		frmCalidadDeSoftware.setBounds(100, 100, 450, 208);
 		frmCalidadDeSoftware.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalidadDeSoftware.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmCalidadDeSoftware.setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		frmCalidadDeSoftware.getContentPane().add(panel, BorderLayout.SOUTH);
@@ -66,14 +67,12 @@ public class EficienciaA {
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botonSiguiente();
-				if(contador > 1)
-					frameInicial.setAcumulado(10);
-				else if(contador > 0)
-					frameInicial.setAcumulado(5);
-				else
-					frameInicial.setAcumulado(0);
-				EficienciaB efiB = new EficienciaB(frameInicial);
-				frmCalidadDeSoftware.dispose();
+				if(pregunta > 0)
+				{
+					frameInicial.setAcumulado(contador);
+					EficienciaB efiB = new EficienciaB(frameInicial);
+					frmCalidadDeSoftware.dispose();
+				}
 			}
 		});
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -146,13 +145,13 @@ public class EficienciaA {
 		if(rdbtnBueno.isSelected() || rdbtnMalo.isSelected() || rdbtnRegular.isSelected())
 		{
 			if(rdbtnBueno.isSelected())
-				contador+=2;
+				contador+=10;
 			if(rdbtnRegular.isSelected())
-				contador++;
+				contador+=5;
 			
 			pregunta++;
 			
-			if(pregunta == 2)
+			if(pregunta == 1)
 			{
 				lblALuegoDe.setText("b) \u00BFLos datos utilizados poseen una encriptaci\u00F3n segura? ");
 				rdbtnBueno.setSelected(false);

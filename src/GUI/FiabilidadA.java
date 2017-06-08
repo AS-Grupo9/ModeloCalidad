@@ -21,7 +21,7 @@ public class FiabilidadA {
 	JRadioButton rdbtnBueno;
 	JRadioButton rdbtnRegular;
 	JRadioButton rdbtnMalo;
-	int contador = 0;
+	int contador, pregunta = 0;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -42,6 +42,7 @@ public class FiabilidadA {
 		frmCalidadDeSoftware.setBounds(100, 100, 450, 208);
 		frmCalidadDeSoftware.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalidadDeSoftware.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmCalidadDeSoftware.setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		frmCalidadDeSoftware.getContentPane().add(panel, BorderLayout.SOUTH);
@@ -59,14 +60,12 @@ public class FiabilidadA {
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botonSiguiente();
-				if(contador > 1)
-					frameInicial.setAcumulado(10);
-				else if(contador > 0)
-					frameInicial.setAcumulado(5);
-				else
-					frameInicial.setAcumulado(0);
-				FiabilidadB fiaB = new FiabilidadB(frameInicial);
-				frmCalidadDeSoftware.dispose();
+				if(pregunta > 0)
+				{
+					frameInicial.setAcumulado(contador);
+					FiabilidadB fiaB = new FiabilidadB(frameInicial);
+					frmCalidadDeSoftware.dispose();
+				}
 			}
 		});
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -139,9 +138,10 @@ public class FiabilidadA {
 		if(rdbtnBueno.isSelected() || rdbtnMalo.isSelected() || rdbtnRegular.isSelected())
 		{
 			if(rdbtnBueno.isSelected())
-				contador+=2;
+				contador+=10;
 			if(rdbtnRegular.isSelected())
-				contador++;
+				contador+=5;
+			pregunta++;
 		}
 		else
 		{

@@ -59,6 +59,7 @@ public class Splash {
 		frmCalidadDeSoftware.setBounds(100, 100, 450, 300);
 		frmCalidadDeSoftware.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalidadDeSoftware.getContentPane().setLayout(null);
+		frmCalidadDeSoftware.setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(10, 11, 414, 239);
@@ -74,7 +75,14 @@ public class Splash {
 			public void actionPerformed(ActionEvent arg0) {
 				frmCalidadDeSoftware.setVisible(false);
 				acumulado = 0;
-				FuncionabilidadA funcA = new FuncionabilidadA(frameInicial);
+				if(acumulado == 0)
+				{
+					FuncionabilidadA funcA = new FuncionabilidadA(frameInicial);
+				}
+				else
+				{
+					frmCalidadDeSoftware.setVisible(true);
+				}
 			}
 		});
 		panel_1.add(btnIniciar);

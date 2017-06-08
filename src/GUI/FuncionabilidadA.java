@@ -18,7 +18,7 @@ import javax.swing.JRadioButton;
 public class FuncionabilidadA {
 
 	private JFrame frmCalidadDeSoftware;
-	private int contador = 0, pregunta = 1;
+	private int contador = 0, pregunta = 0;
 	boolean respuesta;
 	private JLabel lblALuegoDe;
 	JRadioButton rdbtnMalo;
@@ -40,16 +40,13 @@ public class FuncionabilidadA {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 * @wbp.parser.entryPoint
-	 */
 	public FuncionabilidadA(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
 		frmCalidadDeSoftware.setBounds(100, 100, 450, 208);
 		frmCalidadDeSoftware.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalidadDeSoftware.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmCalidadDeSoftware.setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		frmCalidadDeSoftware.getContentPane().add(panel, BorderLayout.SOUTH);
@@ -67,14 +64,9 @@ public class FuncionabilidadA {
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				botonSiguiente();
-				if(pregunta > 3)
+				if(pregunta > 2)
 				{
-					if(contador > 1)
-						frameInicial.setAcumulado(10);
-					else if(contador > 0)
-						frameInicial.setAcumulado(5);
-					else
-						frameInicial.setAcumulado(0);
+					frameInicial.setAcumulado(contador);
 					FuncionabilidadB funcB = new FuncionabilidadB(frameInicial);
 					frmCalidadDeSoftware.dispose();
 				}
@@ -147,15 +139,15 @@ public class FuncionabilidadA {
 		if(rdbtnBueno.isSelected() || rdbtnMalo.isSelected())
 		{
 			if(rdbtnBueno.isSelected())
-				contador++;
+				contador+=10;
 			pregunta++;
 			switch(pregunta)
 			{
-				case 2: lblALuegoDe.setText("b) \u00BFLos datos utilizados poseen una encriptaci\u00F3n segura? ");
+				case 1: lblALuegoDe.setText("b) \u00BFLos datos utilizados poseen una encriptaci\u00F3n segura? ");
 						rdbtnBueno.setSelected(false);
 						rdbtnMalo.setSelected(false);
 						break;
-				case 3: lblALuegoDe.setText("c) \u00BFExisten restricciones de accesos a funcionalidades de acuerdo a alg\u00FAn rol de usuario?");
+				case 2: lblALuegoDe.setText("c) \u00BFExisten restricciones de accesos a funcionalidades de acuerdo a alg\u00FAn rol de usuario?");
 						rdbtnBueno.setSelected(false);
 						rdbtnMalo.setSelected(false);
 						break;
