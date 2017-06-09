@@ -40,6 +40,9 @@ public class FiabilidadE {
 		});
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public FiabilidadE(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
@@ -87,8 +90,8 @@ public class FiabilidadE {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(null);
 		
-		JLabel lblALuegoDe = new JLabel("b) Luego de la recuperaci\u00F3n del sistema, \u00BFexiste la recuperaci\u00F3n de los estados de las actividades realizadas?");
-		lblALuegoDe.setBounds(0, 0, 434, 14);
+		JLabel lblALuegoDe = new JLabel("<html>b) Luego de la recuperaci\u00F3n del sistema, \u00BFexiste la recuperaci\u00F3n de los estados<br> de las actividades realizadas?</html>");
+		lblALuegoDe.setBounds(0, 0, 434, 28);
 		lblALuegoDe.setForeground(Color.BLACK);
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);

@@ -90,7 +90,7 @@ public class FiabilidadD {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblALuegoDe = new JLabel("a) \u00BFLuego de una falla, existe la recuperaci\u00F3n y reanudaci\u00F3n autom\u00E1tica de las actividades del sistema? ");
+		JLabel lblALuegoDe = new JLabel("<html>a) \u00BFLuego de una falla, existe la recuperaci\u00F3n y reanudaci\u00F3n autom\u00E1tica<br> de las actividades del sistema?</html>");
 		lblALuegoDe.setForeground(Color.BLACK);
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);

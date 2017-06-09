@@ -39,6 +39,9 @@ public class EficienciaB {
 		});
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public EficienciaB(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");

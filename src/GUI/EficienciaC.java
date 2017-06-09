@@ -39,6 +39,9 @@ public class EficienciaC {
 		});
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public EficienciaC(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
@@ -88,7 +91,7 @@ public class EficienciaC {
 		
 		JLabel lblALuegoDe = new JLabel("a) Ante un evento generado por el usuario, \u00BFCu\u00E1nto tiempo tarda en dar respuesta el sistema aprox.?");
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
+		lblALuegoDe.setHorizontalAlignment(SwingConstants.LEFT);
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);
 		
 		JPanel panel_3 = new JPanel();

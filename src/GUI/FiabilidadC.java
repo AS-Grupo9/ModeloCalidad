@@ -40,6 +40,9 @@ public class FiabilidadC {
 	}
 
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public FiabilidadC(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
@@ -87,7 +90,7 @@ public class FiabilidadC {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblALuegoDe = new JLabel("c) Luego de ocurrir un error en el sistema, \u00BFSe registra en un log las \u00FAltimas actividades?");
+		JLabel lblALuegoDe = new JLabel("<html>c) Luego de ocurrir un error en el sistema, \u00BFSe registra en un log las \u00FAltimas<br> actividades?</html>");
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);

@@ -36,6 +36,9 @@ public class FiabilidadA {
 		});
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public FiabilidadA(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
@@ -83,7 +86,7 @@ public class FiabilidadA {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblALuegoDe = new JLabel("a) Luego de ocurrir un error en el sistema, \u00BFExiste protecci\u00F3n a los datos afectados? ");
+		JLabel lblALuegoDe = new JLabel("<html>a) Luego de ocurrir un error en el sistema, \u00BFExiste protecci\u00F3n a los <br>datos afectados?</html>");
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);

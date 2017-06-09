@@ -40,6 +40,9 @@ public class FuncionabilidadA {
 		});
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public FuncionabilidadA(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
