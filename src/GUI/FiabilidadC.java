@@ -19,7 +19,7 @@ public class FiabilidadC {
 
 	private JFrame frmCalidadDeSoftware;
 	JRadioButton rdbtnBueno;
-	JRadioButton rdbtnRegular;
+	//JRadioButton rdbtnRegular;
 	JRadioButton rdbtnMalo;
 	int contador, pregunta = 0;
 
@@ -99,40 +99,40 @@ public class FiabilidadC {
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		rdbtnMalo = new JRadioButton("Malo");
+		rdbtnMalo = new JRadioButton("No");
 		rdbtnMalo.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnMalo.setBounds(6, 29, 109, 23);
 		panel_3.add(rdbtnMalo);
 		
-		rdbtnRegular = new JRadioButton("Regular");
+		/*rdbtnRegular = new JRadioButton("Regular");
 		rdbtnRegular.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnRegular.setBounds(175, 29, 109, 23);
-		panel_3.add(rdbtnRegular);
+		panel_3.add(rdbtnRegular);*/
 		
-		rdbtnBueno = new JRadioButton("Bueno");
+		rdbtnBueno = new JRadioButton("Sí");
 		rdbtnBueno.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnBueno.setBounds(319, 29, 109, 23);
 		panel_3.add(rdbtnBueno);
 		
 		rdbtnBueno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rdbtnRegular.setSelected(false);
+			//	rdbtnRegular.setSelected(false);
 				rdbtnMalo.setSelected(false);
 			}
 		});
 		
 		
-		rdbtnRegular.addActionListener(new ActionListener() {
+/*		rdbtnRegular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rdbtnBueno.setSelected(false);
 				rdbtnMalo.setSelected(false);
 			}
-		});
+		});*/
 		
 
 		rdbtnMalo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rdbtnRegular.setSelected(false);
+			//	rdbtnRegular.setSelected(false);
 				rdbtnBueno.setSelected(false);
 			}
 		});
@@ -144,12 +144,12 @@ public class FiabilidadC {
 	 */
 	private void botonSiguiente()
 	{
-		if(rdbtnBueno.isSelected() || rdbtnMalo.isSelected() || rdbtnRegular.isSelected())
+		if(rdbtnBueno.isSelected() || rdbtnMalo.isSelected() )
 		{
 			if(rdbtnBueno.isSelected())
 				contador+=10;
-			if(rdbtnRegular.isSelected())
-				contador+=5;
+			//if(rdbtnRegular.isSelected())
+			//	contador+=5;
 			pregunta++;
 		}
 		else
