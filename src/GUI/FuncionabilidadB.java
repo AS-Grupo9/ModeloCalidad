@@ -91,7 +91,7 @@ public class FuncionabilidadB {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblALuegoDe = new JLabel("a) \u00BFQu\u00E9 grado de precisi\u00F3n poseen las diferentes funcionalidades de la aplicaci\u00F3n?");
+		JLabel lblALuegoDe = new JLabel("d) \u00BFQu\u00E9 grado de precisi\u00F3n poseen las diferentes funcionalidades de la aplicaci\u00F3n?");
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);
@@ -100,15 +100,15 @@ public class FuncionabilidadB {
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		rdbtnMalo = new JRadioButton("Error mayor a 10 elevado a la -3");
+		rdbtnMalo = new JRadioButton("Error mayor a 10ˉ³");
 		rdbtnMalo.setBounds(6, 7, 280, 23);
 		panel_3.add(rdbtnMalo);
 		
-		rdbtnRegular = new JRadioButton("Error entre 10 a la -4 y 10 a la -6");
+		rdbtnRegular = new JRadioButton("Error entre 10ˉ⁴ y 10ˉ⁶");
 		rdbtnRegular.setBounds(6, 29, 280, 23);
 		panel_3.add(rdbtnRegular);
 		
-		rdbtnBueno = new JRadioButton("Error menor a 10 elevado a la -7");
+		rdbtnBueno = new JRadioButton("Error menor a 10ˉ⁷");
 		rdbtnBueno.setBounds(6, 55, 280, 23);
 		panel_3.add(rdbtnBueno);
 		
@@ -150,7 +150,7 @@ public class FuncionabilidadB {
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, "Debe seleccionar una opci�n para continuar.");
+			JOptionPane.showMessageDialog(null, "Debe seleccionar una opción para continuar.");
 		}
 	}
 }

@@ -98,17 +98,17 @@ public class EficienciaB {
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		rdbtnMalo = new JRadioButton("Malo");
+		rdbtnMalo = new JRadioButton("Poco");
 		rdbtnMalo.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnMalo.setBounds(6, 29, 109, 23);
 		panel_3.add(rdbtnMalo);
 		
-		rdbtnRegular = new JRadioButton("Regular");
+		rdbtnRegular = new JRadioButton("Normal");
 		rdbtnRegular.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnRegular.setBounds(175, 29, 109, 23);
 		panel_3.add(rdbtnRegular);
 		
-		rdbtnBueno = new JRadioButton("Bueno");
+		rdbtnBueno = new JRadioButton("Mucho");
 		rdbtnBueno.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnBueno.setBounds(319, 29, 109, 23);
 		panel_3.add(rdbtnBueno);

@@ -16,6 +16,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.SwingConstants;
 
 public class ResultadoFinal extends JFrame {
 
@@ -46,6 +47,7 @@ public class ResultadoFinal extends JFrame {
 	 */
 	public ResultadoFinal(Splash frameInicial) {
 		fr = new JFrame();
+		fr.setTitle("Resultado Final");
 		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fr.setBounds(100, 100, 450, 207);
 		contentPane = new JPanel();
@@ -60,9 +62,10 @@ public class ResultadoFinal extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblCriterioDeAceptacion = new JLabel("Criterio de Aceptaci\u00F3n");
-		lblCriterioDeAceptacion.setBounds(125, 0, 150, 25);
+		lblCriterioDeAceptacion.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCriterioDeAceptacion.setBounds(73, 0, 260, 25);
 		panel.add(lblCriterioDeAceptacion);
-		lblCriterioDeAceptacion.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCriterioDeAceptacion.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(10, 41, 414, 101);
