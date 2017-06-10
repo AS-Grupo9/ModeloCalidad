@@ -22,7 +22,7 @@ public class ResultadoFinal extends JFrame {
 
 	private JFrame fr;
 	private JPanel contentPane;
-	private int cantPreguntas = 15;
+	private int cantPreguntas = 23;	//15
 	JLabel lblCalificacion;
 	JLabel lblCalificacionDetalle;
 

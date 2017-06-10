@@ -15,21 +15,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 
-public class MantenibilidadA {
+public class PortabilidadB {
 
 	private JFrame frmCalidadDeSoftware;
 	JRadioButton rdbtnBueno;
-	JRadioButton rdbtnRegular;
+	//JRadioButton rdbtnRegular;
 	JRadioButton rdbtnMalo;
 	int contador, pregunta = 0;
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					/*MantenibilidadA window = new MantenibilidadA();
+					/*FiabilidadA window = new FiabilidadA();
 					window.frmCalidadDeSoftware.setVisible(true);*/
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,10 +36,13 @@ public class MantenibilidadA {
 		});
 	}
 
-	public MantenibilidadA(Splash frameInicial) {
+	/**
+	 * @wbp.parser.entryPoint
+	 */
+	public PortabilidadB(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
-		frmCalidadDeSoftware.setBounds(100, 100, 488, 208);
+		frmCalidadDeSoftware.setBounds(100, 100, 419, 208);
 		frmCalidadDeSoftware.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalidadDeSoftware.getContentPane().setLayout(new BorderLayout(0, 0));
 		frmCalidadDeSoftware.setLocationRelativeTo(null);
@@ -65,7 +66,7 @@ public class MantenibilidadA {
 				if(pregunta > 0)
 				{
 					frameInicial.setAcumulado(contador);
-					MantenibilidadB manB = new MantenibilidadB(frameInicial);
+					PortabilidadC porC = new PortabilidadC(frameInicial);
 					frmCalidadDeSoftware.dispose();
 				}
 			}
@@ -76,7 +77,7 @@ public class MantenibilidadA {
 		JPanel panel_1 = new JPanel();
 		frmCalidadDeSoftware.getContentPane().add(panel_1, BorderLayout.NORTH);
 		
-		JLabel lblFuncionabilidad = new JLabel("MANTENIBILIDAD - Capacidad del c\u00F3digo de ser analizado");
+		JLabel lblFuncionabilidad = new JLabel("PORTABILIDAD - Adaptabilidad");
 		lblFuncionabilidad.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFuncionabilidad.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		panel_1.add(lblFuncionabilidad);
@@ -85,74 +86,71 @@ public class MantenibilidadA {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblALuegoDe = new JLabel("a) Considera que el % de código comentado es...");
-		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		JLabel lblALuegoDe = new JLabel("<html>b) ¿El sistema posee la capacidad de funcionar en sistemas operativos x86 y x64?</html>");
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
+		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);
 		
 		JPanel panel_3 = new JPanel();
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		rdbtnMalo = new JRadioButton("Poco");
+		rdbtnMalo = new JRadioButton("No");
 		rdbtnMalo.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnMalo.setBounds(6, 29, 109, 23);
+		rdbtnMalo.setBounds(93, 29, 109, 23);
 		panel_3.add(rdbtnMalo);
 		
-		rdbtnRegular = new JRadioButton("Normal");
-		rdbtnRegular.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnRegular.setBounds(175, 29, 109, 23);
-		panel_3.add(rdbtnRegular);
+		//rdbtnRegular = new JRadioButton("Regular");
+		//rdbtnRegular.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		//rdbtnRegular.setBounds(175, 29, 109, 23);
+		//panel_3.add(rdbtnRegular);
 		
-		rdbtnBueno = new JRadioButton("Bueno");
+		rdbtnBueno = new JRadioButton("Si");
 		rdbtnBueno.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnBueno.setBounds(319, 29, 109, 23);
+		rdbtnBueno.setBounds(241, 29, 109, 23);
 		panel_3.add(rdbtnBueno);
 		
 		rdbtnBueno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rdbtnRegular.setSelected(false);
+				//rdbtnRegular.setSelected(false);
 				rdbtnMalo.setSelected(false);
 			}
 		});
 		
 		
-		rdbtnRegular.addActionListener(new ActionListener() {
+		/*rdbtnRegular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rdbtnBueno.setSelected(false);
 				rdbtnMalo.setSelected(false);
 			}
-		});
+		});*/
 		
 
 		rdbtnMalo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rdbtnRegular.setSelected(false);
+				//rdbtnRegular.setSelected(false);
 				rdbtnBueno.setSelected(false);
 			}
 		});
 
 		frmCalidadDeSoftware.setVisible(true);
-		}
-
-		/**
-		 * @wbp.parser.entryPoint
-		 */
-		private void botonSiguiente()
-		{
-			if(rdbtnBueno.isSelected() || rdbtnMalo.isSelected() || rdbtnRegular.isSelected())
-			{
-				if(rdbtnBueno.isSelected())
-					contador+=10;
-				if(rdbtnRegular.isSelected())
-					contador+=5;
-				pregunta++;
-			}
-			else
-			{
-				JOptionPane.showMessageDialog(null, "Debe seleccionar una opción para continuar.");
-			}
-		}
-		
 	}
+
+	private void botonSiguiente()
+	{
+		if(rdbtnBueno.isSelected() || rdbtnMalo.isSelected())
+		{
+			if(rdbtnBueno.isSelected())
+				contador+=10;
+			//if(rdbtnRegular.isSelected())
+			//	contador+=5;
+			pregunta++;
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, "Debe seleccionar una opción para continuar.");
+		}
+	}
+	
+}
 

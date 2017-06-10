@@ -69,9 +69,12 @@ public class MantenibilidadC {
 				botonSiguiente();
 				if(pregunta > 0)
 				{
+					
 					frameInicial.setAcumulado(contador);
-					ResultadoFinal fin = new ResultadoFinal(frameInicial);
+					UsabilidadA usaB = new UsabilidadA(frameInicial);
 					frmCalidadDeSoftware.dispose();
+					
+					
 				}
 			}
 		});

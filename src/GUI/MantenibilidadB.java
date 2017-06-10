@@ -65,8 +65,11 @@ public class MantenibilidadB {
 				botonSiguiente();
 				if(pregunta > 0)
 				{
-					frameInicial.setAcumulado(contador);
+					/*frameInicial.setAcumulado(contador);
 					MantenibilidadC manC = new MantenibilidadC(frameInicial);
+					frmCalidadDeSoftware.dispose();*/
+					frameInicial.setAcumulado(contador);
+					UsabilidadA usaB = new UsabilidadA(frameInicial);
 					frmCalidadDeSoftware.dispose();
 				}
 			}
@@ -86,7 +89,7 @@ public class MantenibilidadB {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblALuegoDe = new JLabel("a) \u00BFCu\u00E1l es la cantidad de fallas por cada prueba realizada al software?");
+		JLabel lblALuegoDe = new JLabel("a) En promedio, cual es el % de falla por cada prueba realizada al software?");
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);

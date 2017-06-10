@@ -70,7 +70,7 @@ public class Splash {
 		panel.add(panel_1, BorderLayout.SOUTH);
 		
 		JButton btnIniciar = new JButton("Comenzar");
-		btnIniciar.setFont(new Font("Arial Narrow", Font.PLAIN, 22));
+		btnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		btnIniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmCalidadDeSoftware.setVisible(false);
@@ -91,5 +91,10 @@ public class Splash {
 		lblCalidadDeSoftware.setFont(new Font("Arial Narrow", Font.BOLD, 26));
 		lblCalidadDeSoftware.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblCalidadDeSoftware, BorderLayout.NORTH);
+		
+		JLabel lblAnlisisDeSoftware = new JLabel("An\u00E1lisis de Software - Grupo 9");
+		lblAnlisisDeSoftware.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAnlisisDeSoftware.setFont(new Font("Arial Narrow", Font.BOLD, 26));
+		panel.add(lblAnlisisDeSoftware, BorderLayout.CENTER);
 	}
 }
