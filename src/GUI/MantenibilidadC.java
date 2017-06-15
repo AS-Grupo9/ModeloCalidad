@@ -102,19 +102,19 @@ public class MantenibilidadC {
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		rdbtnMalo = new JRadioButton("Malo");
+		rdbtnMalo = new JRadioButton("Mayor a 20");
 		rdbtnMalo.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnMalo.setBounds(6, 29, 109, 23);
+		rdbtnMalo.setBounds(6, 7, 260, 23);
 		panel_3.add(rdbtnMalo);
 		
-		rdbtnRegular = new JRadioButton("Regular");
+		rdbtnRegular = new JRadioButton("Entre 20 y 10");
 		rdbtnRegular.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnRegular.setBounds(175, 29, 109, 23);
+		rdbtnRegular.setBounds(6, 29, 260, 23);
 		panel_3.add(rdbtnRegular);
 		
-		rdbtnBueno = new JRadioButton("Bueno");
+		rdbtnBueno = new JRadioButton("Menor a 10");
 		rdbtnBueno.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnBueno.setBounds(319, 29, 109, 23);
+		rdbtnBueno.setBounds(6, 55, 260, 23);
 		panel_3.add(rdbtnBueno);
 		
 		rdbtnBueno.addActionListener(new ActionListener() {

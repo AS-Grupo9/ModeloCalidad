@@ -55,6 +55,7 @@ public class EficienciaA {
 		frmCalidadDeSoftware.getContentPane().add(panel, BorderLayout.SOUTH);
 		
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.setHorizontalAlignment(SwingConstants.LEFT);
 		btnSalir.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -64,6 +65,8 @@ public class EficienciaA {
 		panel.add(btnSalir);
 		
 		JButton btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.setHorizontalAlignment(SwingConstants.RIGHT);
+		panel.add(btnSiguiente);
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botonSiguiente();
@@ -76,7 +79,6 @@ public class EficienciaA {
 			}
 		});
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		panel.add(btnSiguiente);
 		
 		JPanel panel_1 = new JPanel();
 		frmCalidadDeSoftware.getContentPane().add(panel_1, BorderLayout.NORTH);
@@ -99,19 +101,19 @@ public class EficienciaA {
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		rdbtnMalo = new JRadioButton("Poco");
+		rdbtnMalo = new JRadioButton("Mayor al 80%");
 		rdbtnMalo.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnMalo.setBounds(6, 29, 109, 23);
+		rdbtnMalo.setBounds(6, 7, 208, 23);
 		panel_3.add(rdbtnMalo);
 		
-		rdbtnRegular = new JRadioButton("Normal");
+		rdbtnRegular = new JRadioButton("Entre 20% y 70%");
 		rdbtnRegular.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnRegular.setBounds(175, 29, 109, 23);
+		rdbtnRegular.setBounds(6, 29, 208, 23);
 		panel_3.add(rdbtnRegular);
 		
-		rdbtnBueno = new JRadioButton("Mucho");
+		rdbtnBueno = new JRadioButton("Menor al 20%");
 		rdbtnBueno.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnBueno.setBounds(319, 29, 109, 23);
+		rdbtnBueno.setBounds(6, 55, 208, 23);
 		panel_3.add(rdbtnBueno);
 		
 		rdbtnBueno.addActionListener(new ActionListener() {
@@ -150,14 +152,6 @@ public class EficienciaA {
 				contador+=5;
 			
 			pregunta++;
-			
-			if(pregunta == 1)
-			{
-				lblALuegoDe.setText("b) \u00BFLos datos utilizados poseen una encriptaci\u00F3n segura? ");
-				rdbtnBueno.setSelected(false);
-				rdbtnMalo.setSelected(false);
-				rdbtnRegular.setSelected(false);
-			}
 		}
 		else
 		{

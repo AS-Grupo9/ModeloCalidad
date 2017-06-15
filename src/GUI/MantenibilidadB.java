@@ -39,6 +39,9 @@ public class MantenibilidadB {
 		});
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public MantenibilidadB(Splash frameInicial) {
 		frmCalidadDeSoftware = new JFrame();
 		frmCalidadDeSoftware.setTitle("Calidad de Software");
@@ -89,7 +92,7 @@ public class MantenibilidadB {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblALuegoDe = new JLabel("a) En promedio, cual es el % de falla por cada prueba realizada al software?");
+		JLabel lblALuegoDe = new JLabel("a) ¿Cuál es la cantidad de fallas por cada prueba realizada al software?");
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);
@@ -98,19 +101,19 @@ public class MantenibilidadB {
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		rdbtnMalo = new JRadioButton("Malo");
+		rdbtnMalo = new JRadioButton("Mayor a 10");
 		rdbtnMalo.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnMalo.setBounds(6, 29, 109, 23);
+		rdbtnMalo.setBounds(6, 7, 109, 23);
 		panel_3.add(rdbtnMalo);
 		
-		rdbtnRegular = new JRadioButton("Regular");
+		rdbtnRegular = new JRadioButton("Entre 3 y 10");
 		rdbtnRegular.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnRegular.setBounds(175, 29, 109, 23);
+		rdbtnRegular.setBounds(6, 29, 109, 23);
 		panel_3.add(rdbtnRegular);
 		
-		rdbtnBueno = new JRadioButton("Bueno");
+		rdbtnBueno = new JRadioButton("Menor a 3");
 		rdbtnBueno.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnBueno.setBounds(319, 29, 109, 23);
+		rdbtnBueno.setBounds(6, 55, 109, 23);
 		panel_3.add(rdbtnBueno);
 		
 		rdbtnBueno.addActionListener(new ActionListener() {

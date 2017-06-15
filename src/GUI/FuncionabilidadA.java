@@ -90,7 +90,7 @@ public class FuncionabilidadA {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		lblALuegoDe = new JLabel("a) Luego de ocurrir un error en el sistema, \u00BFExiste protecci\u00F3n a los datos afectados? ");
+		lblALuegoDe = new JLabel("a) ¿El sistema posee un login con autentificación de usuario y contraseña? ");
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);

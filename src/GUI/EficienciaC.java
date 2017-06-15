@@ -89,28 +89,28 @@ public class EficienciaC {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblALuegoDe = new JLabel("c) Ante un evento generado por el usuario, El tiempo en dar respuesta el sistema es aproximadamente?");
+		JLabel lblALuegoDe = new JLabel("<html>c) Ante un evento generado por el usuario, ¿Cuánto tiempo tarda en dar<br> respuesta el sistema aproximadamente?</html>");
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblALuegoDe.setHorizontalAlignment(SwingConstants.LEFT);
+		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);
 		
 		JPanel panel_3 = new JPanel();
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		rdbtnMalo = new JRadioButton("Poco");
+		rdbtnMalo = new JRadioButton("Mayor a 3 segundos");
 		rdbtnMalo.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnMalo.setBounds(6, 29, 109, 23);
+		rdbtnMalo.setBounds(6, 7, 285, 23);
 		panel_3.add(rdbtnMalo);
 		
-		rdbtnRegular = new JRadioButton("Normal");
+		rdbtnRegular = new JRadioButton("Entre 1 y 3 segundos");
 		rdbtnRegular.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnRegular.setBounds(211, 29, 109, 23);
+		rdbtnRegular.setBounds(6, 33, 285, 23);
 		panel_3.add(rdbtnRegular);
 		
-		rdbtnBueno = new JRadioButton("Mucho");
+		rdbtnBueno = new JRadioButton("Menor a 1 segundo");
 		rdbtnBueno.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnBueno.setBounds(389, 29, 109, 23);
+		rdbtnBueno.setBounds(6, 59, 285, 23);
 		panel_3.add(rdbtnBueno);
 		
 		rdbtnBueno.addActionListener(new ActionListener() {

@@ -86,7 +86,7 @@ public class PortabilidadC {
 		frmCalidadDeSoftware.getContentPane().add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblALuegoDe = new JLabel("<html>a) ¿El producto se instala en 4 ó menos pasos? </html>");
+		JLabel lblALuegoDe = new JLabel("<html>a) ¿En cuántos pasos se realiza la instalación del producto software? </html>");
 		lblALuegoDe.setHorizontalAlignment(SwingConstants.CENTER);
 		lblALuegoDe.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		panel_2.add(lblALuegoDe, BorderLayout.NORTH);
@@ -95,9 +95,9 @@ public class PortabilidadC {
 		panel_2.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		
-		rdbtnMalo = new JRadioButton("No");
+		rdbtnMalo = new JRadioButton("En más de 4 pasos");
 		rdbtnMalo.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnMalo.setBounds(93, 29, 109, 23);
+		rdbtnMalo.setBounds(6, 7, 201, 23);
 		panel_3.add(rdbtnMalo);
 		
 		//rdbtnRegular = new JRadioButton("Regular");
@@ -105,9 +105,9 @@ public class PortabilidadC {
 		//rdbtnRegular.setBounds(175, 29, 109, 23);
 		//panel_3.add(rdbtnRegular);
 		
-		rdbtnBueno = new JRadioButton("Si");
+		rdbtnBueno = new JRadioButton("En 4 pasos o menos");
 		rdbtnBueno.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnBueno.setBounds(241, 29, 109, 23);
+		rdbtnBueno.setBounds(6, 33, 201, 23);
 		panel_3.add(rdbtnBueno);
 		
 		rdbtnBueno.addActionListener(new ActionListener() {
