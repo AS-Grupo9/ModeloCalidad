@@ -68,6 +68,7 @@ public class MantenibilidadA {
 				if(pregunta > 0)
 				{
 					frameInicial.setAcumulado(contador);
+					frameInicial.setAcumMantenibilidad(contador);
 					MantenibilidadB manB = new MantenibilidadB(frameInicial);
 					frmCalidadDeSoftware.dispose();
 				}

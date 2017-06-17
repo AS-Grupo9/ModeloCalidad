@@ -71,6 +71,7 @@ public class MantenibilidadC {
 				{
 					
 					frameInicial.setAcumulado(contador);
+					frameInicial.setAcumMantenibilidad(contador);
 					UsabilidadA usaB = new UsabilidadA(frameInicial);
 					frmCalidadDeSoftware.dispose();
 					

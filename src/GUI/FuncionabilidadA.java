@@ -70,6 +70,7 @@ public class FuncionabilidadA {
 				if(pregunta > 2)
 				{
 					frameInicial.setAcumulado(contador);
+					frameInicial.setAcumFuncionalidad(contador);
 					FuncionabilidadB funcB = new FuncionabilidadB(frameInicial);
 					frmCalidadDeSoftware.dispose();
 				}

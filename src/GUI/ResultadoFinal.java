@@ -22,7 +22,13 @@ public class ResultadoFinal extends JFrame {
 
 	private JFrame fr;
 	private JPanel contentPane;
-	private int cantPreguntas = 23;	//15
+	private int cantPreguntas = 24;	//15
+	private int cantPreguntasFuncionalidad = 4;
+	private int cantPreguntasEficiencia = 3;
+	private int cantPreguntasFiabilidad = 5;
+	private int cantPreguntasMantenibilidad = 3;
+	private int cantPreguntasPortabilidad = 5;
+	private int cantPreguntasUsabilidad = 4;
 	JLabel lblCalificacion;
 	JLabel lblCalificacionDetalle;
 
@@ -49,7 +55,7 @@ public class ResultadoFinal extends JFrame {
 		fr = new JFrame();
 		fr.setTitle("Resultado Final");
 		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fr.setBounds(100, 100, 450, 207);
+		fr.setBounds(100, 100, 450, 273);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		fr.setContentPane(contentPane);
@@ -68,7 +74,7 @@ public class ResultadoFinal extends JFrame {
 		lblCriterioDeAceptacion.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 41, 414, 101);
+		panel_1.setBounds(10, 41, 414, 162);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -103,13 +109,49 @@ public class ResultadoFinal extends JFrame {
 		lblPuntajePromedio.setBounds(10, 41, 150, 25);
 		panel_1.add(lblPuntajePromedio);
 		
+		JLabel lblFuncionalidad = new JLabel("FUNCIONALIDAD");
+		lblFuncionalidad.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblFuncionalidad.setBounds(10, 101, 135, 14);
+		panel_1.add(lblFuncionalidad);
+		CambiarColorLabel(lblFuncionalidad, frameInicial.getAcumFuncionalidad(), cantPreguntasFuncionalidad);
+		
+		JLabel lblEficiencia = new JLabel("EFICIENCIA");
+		lblEficiencia.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblEficiencia.setBounds(10, 119, 135, 14);
+		panel_1.add(lblEficiencia);
+		CambiarColorLabel(lblEficiencia, frameInicial.getAcumEficiencia(), cantPreguntasEficiencia);
+		
+		JLabel lblFiabilidad = new JLabel("FIABILIDAD");
+		lblFiabilidad.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblFiabilidad.setBounds(10, 138, 135, 14);
+		panel_1.add(lblFiabilidad);
+		CambiarColorLabel(lblFiabilidad, frameInicial.getAcumFiabilidad(), cantPreguntasFiabilidad);
+		
+		JLabel lblMantenibilidad = new JLabel("MANTENIBILIDAD");
+		lblMantenibilidad.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblMantenibilidad.setBounds(231, 101, 135, 14);
+		panel_1.add(lblMantenibilidad);
+		CambiarColorLabel(lblMantenibilidad, frameInicial.getAcumMantenibilidad(), cantPreguntasMantenibilidad);
+		
+		JLabel lblUsabilidad = new JLabel("USABILIDAD");
+		lblUsabilidad.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblUsabilidad.setBounds(231, 119, 135, 14);
+		panel_1.add(lblUsabilidad);
+		CambiarColorLabel(lblUsabilidad, frameInicial.getAcumUsabilidad(), cantPreguntasUsabilidad);
+		
+		JLabel lblPortabilidad = new JLabel("PORTABILIDAD");
+		lblPortabilidad.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblPortabilidad.setBounds(231, 138, 135, 14);
+		panel_1.add(lblPortabilidad);
+		CambiarColorLabel(lblPortabilidad, frameInicial.getAcumPortabilidad(), cantPreguntasPortabilidad);
+		
 		JButton btnNewButton = new JButton("Finalizar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-		btnNewButton.setBounds(335, 142, 89, 23);
+		btnNewButton.setBounds(335, 208, 89, 23);
 		contentPane.add(btnNewButton);
 		ObtenerCalificacion(frameInicial.getAcumulado()/(double)cantPreguntas);
 		fr.setVisible(true);
@@ -139,5 +181,23 @@ public class ResultadoFinal extends JFrame {
 		}
 		
 		return calificacion;
+	}
+	
+	private void CambiarColorLabel(JLabel label, int total, int cantPreguntas)
+	{
+		double resultado = total / (double)cantPreguntas;
+		
+		if(resultado > 7)
+		{
+			label.setForeground(Color.GREEN);
+		}
+		else if(resultado <= 7 && resultado >= 4)
+		{
+			label.setForeground(Color.YELLOW);
+		}
+		else
+		{
+			label.setForeground(Color.RED);
+		}
 	}
 }

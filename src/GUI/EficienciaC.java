@@ -69,6 +69,7 @@ public class EficienciaC {
 					if(pregunta > 0)
 					{
 						frameInicial.setAcumulado(contador);
+						frameInicial.setAcumEficiencia(contador);
 						FiabilidadA fiaA = new FiabilidadA(frameInicial);
 						frmCalidadDeSoftware.dispose();
 					}

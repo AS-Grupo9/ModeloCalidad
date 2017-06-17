@@ -66,6 +66,7 @@ public class PortabilidadB {
 				if(pregunta > 0)
 				{
 					frameInicial.setAcumulado(contador);
+					frameInicial.setAcumPortabilidad(contador);
 					PortabilidadC porC = new PortabilidadC(frameInicial);
 					frmCalidadDeSoftware.dispose();
 				}

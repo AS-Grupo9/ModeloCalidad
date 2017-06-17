@@ -66,6 +66,7 @@ public class UsabilidadB {
 				if(pregunta > 0)
 				{
 					frameInicial.setAcumulado(contador);
+					frameInicial.setAcumUsabilidad(contador);
 					UsabilidadC usaC = new UsabilidadC(frameInicial);
 					frmCalidadDeSoftware.dispose();
 				}

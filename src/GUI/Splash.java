@@ -18,7 +18,61 @@ public class Splash {
 	private JFrame frmCalidadDeSoftware;
 	private JPanel panel_1;
 	private int acumulado;
+	private int acumFuncionalidad;
+	private int acumFiabilidad;
+	private int acumEficiencia;
+	private int acumMantenibilidad;
+	private int acumPortabilidad;
+	private int acumUsabilidad;
 		
+	public int getAcumFuncionalidad() {
+		return acumFuncionalidad;
+	}
+
+	public void setAcumFuncionalidad(int acumFuncionalidad) {
+		this.acumFuncionalidad += acumFuncionalidad;
+	}
+
+	public int getAcumFiabilidad() {
+		return acumFiabilidad;
+	}
+
+	public void setAcumFiabilidad(int acumFiabilidad) {
+		this.acumFiabilidad += acumFiabilidad;
+	}
+
+	public int getAcumEficiencia() {
+		return acumEficiencia;
+	}
+
+	public void setAcumEficiencia(int acumEficiencia) {
+		this.acumEficiencia += acumEficiencia;
+	}
+
+	public int getAcumMantenibilidad() {
+		return acumMantenibilidad;
+	}
+
+	public void setAcumMantenibilidad(int acumMantenibilidad) {
+		this.acumMantenibilidad += acumMantenibilidad;
+	}
+
+	public int getAcumPortabilidad() {
+		return acumPortabilidad;
+	}
+
+	public void setAcumPortabilidad(int acumPortabilidad) {
+		this.acumPortabilidad += acumPortabilidad;
+	}
+
+	public int getAcumUsabilidad() {
+		return acumUsabilidad;
+	}
+
+	public void setAcumUsabilidad(int acumUsabilidad) {
+		this.acumUsabilidad += acumUsabilidad;
+	}
+
 	public int getAcumulado() {
 		return acumulado;
 	}

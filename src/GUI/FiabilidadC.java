@@ -70,6 +70,7 @@ public class FiabilidadC {
 				if(pregunta > 0)
 				{
 					frameInicial.setAcumulado(contador);
+					frameInicial.setAcumFiabilidad(contador);
 					FiabilidadD fiaD = new FiabilidadD(frameInicial);
 					frmCalidadDeSoftware.dispose();
 				}

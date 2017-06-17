@@ -71,6 +71,7 @@ public class FuncionabilidadB {
 				if(pregunta > 0)
 				{
 					frameInicial.setAcumulado(contador);
+					frameInicial.setAcumFuncionalidad(contador);
 					EficienciaA efiA = new EficienciaA(frameInicial);
 					frmCalidadDeSoftware.dispose();
 				}

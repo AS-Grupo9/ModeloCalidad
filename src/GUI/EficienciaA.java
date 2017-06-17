@@ -73,6 +73,7 @@ public class EficienciaA {
 				if(pregunta > 0)
 				{
 					frameInicial.setAcumulado(contador);
+					frameInicial.setAcumEficiencia(contador);
 					EficienciaB efiB = new EficienciaB(frameInicial);
 					frmCalidadDeSoftware.dispose();
 				}
